@@ -2,6 +2,7 @@ import './index.css';
 import img1 from './images/book1.jpg';
 import img2 from './images/book2.jpg';
 import img3 from './images/book3.jpg';
+import Book from './Book';
 
 export const books = [
     {
@@ -23,3 +24,20 @@ export const books = [
         img: img1
       }
 ];
+
+const BookList = () => {
+    return (
+    <> {/* <> </> This is a React fragment.
+        It is necessary when '*/}
+        <h1 className='PageTitle'> Best Selling Books </h1>
+        <section className='BookList'>
+        {/* Here, index is a keyword argument to the*/}
+        {books.map((book,index) => {
+            return <Book {...book} key={book.id} number={index}/>
+        })}
+    </section>
+    </>
+    )
+}
+
+export default BookList;
